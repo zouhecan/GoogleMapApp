@@ -38,6 +38,7 @@ public class WebViewActivity extends Activity {
         urls = getIntent().getStringArrayListExtra("URLS");
         initWebViewClient();
         for (String url : urls) {
+            Log.d("zouhecan", "startLoadUrl" + url);
             webView.loadUrl(url);
         }
     }
