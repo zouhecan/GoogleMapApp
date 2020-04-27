@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -55,11 +56,13 @@ public class WebViewActivity extends Activity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
+                Log.d("zouhecan", "onPageStarted:" + url);
             }
 
             @Override
             public void onPageFinished(WebView view, final String url) {
                 super.onPageFinished(view, url);
+                Log.d("zouhecan", "onPageFinished:" + url);
             }
 
             @Override
@@ -80,12 +83,14 @@ public class WebViewActivity extends Activity {
 
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Log.d("zouhecan", "onReceivedError:" + failingUrl);
             }
 
             @TargetApi(Build.VERSION_CODES.M)
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 this.onReceivedError(view, error.getErrorCode(), error.getDescription().toString(), request.getUrl().toString());
+                Log.d("zouhecan", "onReceivedError:" + request.getUrl().toString());
             }
 
             @Override
