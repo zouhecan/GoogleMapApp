@@ -31,6 +31,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     "https://zhuanlan.zhihu.com/p/32536915"
                 )
             )
+            Log.d("zouhecan", "startWebViewActivity")
             startActivity(Intent(this, WebViewActivity::class.java).apply {
                 putStringArrayListExtra("URLS", urls)
             })
