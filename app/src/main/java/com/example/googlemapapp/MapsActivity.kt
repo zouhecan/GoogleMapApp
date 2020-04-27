@@ -27,8 +27,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val urls = ArrayList(
                 mutableListOf(
                     "https://help.github.com/cn/github/using-git/resolving-merge-conflicts-after-a-git-rebase",
-                    "https://juejin.im/entry/5ae9706d51882567327809d0",
-                    "https://zhuanlan.zhihu.com/p/32536915"
+                    "https://juejin.im/entry/5ae9706d51882567327809d0"
                 )
             )
             startActivity(Intent(this, WebViewActivity::class.java).apply {

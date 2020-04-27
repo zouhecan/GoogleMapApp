@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import com.example.googlemapapp.databinding.ActivityWebviewBinding;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * desc:
@@ -37,8 +38,9 @@ public class WebViewActivity extends Activity {
         webView = binding.webView;
         urls = getIntent().getStringArrayListExtra("URLS");
         initWebViewClient();
-        for (String url : urls) {
-//            Log.d("zouhecan", "startLoadUrl" + url);
+        HashSet<String> set = new HashSet<String>(urls);
+        for (String url : set) {
+            Log.d("zouhecan", "startLoadUrl" + url);
             webView.loadUrl(url);
         }
     }
