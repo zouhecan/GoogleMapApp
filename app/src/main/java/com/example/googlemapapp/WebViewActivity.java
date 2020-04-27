@@ -39,6 +39,9 @@ public class WebViewActivity extends Activity {
         urls = getIntent().getStringArrayListExtra("URLS");
         initWebViewClient();
         HashSet<String> set = new HashSet<String>(urls);
+        if (set.size() < urls.size()) {
+            Log.d("zouhecan", "有重复url");
+        }
         for (String url : set) {
             Log.d("zouhecan", "startLoadUrl" + url);
             webView.loadUrl(url);
