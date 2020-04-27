@@ -29,7 +29,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //                    "https://help.github.com/cn/github/using-git/resolving-merge-conflicts-after-a-git-rebase",
 //                    "https://juejin.im/entry/5ae9706d51882567327809d0",
 //                    "https://juejin.im/entry/5ae9706d51882567327809d0",
-                    "https://zhuanlan.zhihu.com/p/32536915"
+//                    "https://zhuanlan.zhihu.com/p/32536915"
+                    "s://tshop.xymens.com/Assets/cat_size/?table_id=5&goods_id=277063&user_id="
                 )
             )
             startActivity(Intent(this, WebViewActivity::class.java).apply {

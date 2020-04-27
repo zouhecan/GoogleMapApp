@@ -1,5 +1,6 @@
 package com.example.googlemapapp;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -8,9 +9,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -48,17 +50,21 @@ public class WebViewActivity extends Activity {
         }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void initWebViewClient() {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setJavaScriptEnabled(true);//允许JavaScript脚本运行
+        webSettings.setDomStorageEnabled(true);//开启本地DOM存储
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
 
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return shouldOverrideUrlLoading(view, request.getUrl().toString());
+                return super.shouldOverrideUrlLoading(view, url);
             }
 
             @Override
@@ -74,24 +80,9 @@ public class WebViewActivity extends Activity {
             }
 
             @Override
-            public void onLoadResource(WebView view, String url) {
-                super.onLoadResource(view, url);
-            }
-
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, final WebResourceRequest request) {
-                return this.shouldInterceptRequest(view, request.getUrl().toString());
-            }
-
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-                return super.shouldInterceptRequest(view, url);
-            }
-
-            @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 Log.d("zouhecan", "onReceivedError:" + failingUrl);
+                webView.loadUrl(failingUrl);
             }
 
             @TargetApi(Build.VERSION_CODES.M)
@@ -102,10 +93,14 @@ public class WebViewActivity extends Activity {
             }
 
             @Override
-            public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
+                Log.d("zouhecan", "onReceivedSslError:" + error.toString());
+                super.onReceivedSslError(view, handler, error);
             }
         });
+
+        webView.setWebChromeClient(new WebChromeClient());
     }
 
 
