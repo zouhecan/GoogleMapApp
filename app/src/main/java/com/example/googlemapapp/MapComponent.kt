@@ -27,7 +27,15 @@ class MapComponent : SupportMapFragment(), GoogleApiClient.ConnectionCallbacks,
     override fun onActivityCreated(p0: Bundle?) {
         super.onActivityCreated(p0)
         (view?.parent as ViewGroup).setOnClickListener {
-
+            val urls = ArrayList(
+                mutableListOf(
+                    "https://help.github.com/cn/github/using-git/resolving-merge-conflicts-after-a-git-rebase",
+                    "https://juejin.im/entry/5ae9706d51882567327809d0"
+                )
+            )
+            context?.startActivity(Intent(context, WebViewActivity::class.java).apply {
+                putStringArrayListExtra("URLS", urls)
+            })
         }
     }
 
