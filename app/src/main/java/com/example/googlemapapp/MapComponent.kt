@@ -24,22 +24,6 @@ class MapComponent : SupportMapFragment(), GoogleApiClient.ConnectionCallbacks,
 
     private val logTag = MapComponent::class.java.canonicalName
 
-    override fun onActivityCreated(p0: Bundle?) {
-        super.onActivityCreated(p0)
-        (view?.parent as ViewGroup).setOnClickListener {
-            val urls = ArrayList(
-                mutableListOf(
-                    "https://help.github.com/cn/github/using-git/resolving-merge-conflicts-after-a-git-rebase",
-                    "https://juejin.im/entry/5ae9706d51882567327809d0",
-                    "https://zhuanlan.zhihu.com/p/32536915"
-                )
-            )
-            context?.startActivity(Intent(context, WebViewActivity::class.java).apply {
-                putStringArrayListExtra("URLS", urls)
-            })
-        }
-    }
-
     override fun onConnected(p0: Bundle?) {
         Log.d(logTag, "onConnected")
     }
