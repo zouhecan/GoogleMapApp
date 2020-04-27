@@ -18,13 +18,15 @@ import androidx.annotation.Nullable;
 
 import com.example.googlemapapp.databinding.ActivityWebviewBinding;
 
+import java.util.ArrayList;
+
 /**
  * desc:
  * author: zouhecan {hc.zou@ctrip.com}
  * date: 2020/4/27
  */
 public class WebViewActivity extends Activity {
-    private String[] urls;
+    private ArrayList<String> urls;
     private WebView webView;
 
     @Override
@@ -33,7 +35,7 @@ public class WebViewActivity extends Activity {
         setContentView(R.layout.activity_webview);
         ActivityWebviewBinding binding = ActivityWebviewBinding.inflate(getLayoutInflater());
         webView = binding.webView;
-        urls = getIntent().getStringArrayExtra("URLS");
+        urls = getIntent().getStringArrayListExtra("URLS");
         initWebViewClient();
         for (String url : urls) {
             webView.loadUrl(url);

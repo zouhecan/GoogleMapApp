@@ -1,6 +1,8 @@
 package com.example.googlemapapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.ArrayMap
 import android.util.Log
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -47,6 +49,15 @@ class MapComponent : SupportMapFragment(), GoogleApiClient.ConnectionCallbacks,
 
     override fun onMarkerClick(p0: Marker?): Boolean {
         Log.d(logTag, "onMarkerClick")
+        val urls = ArrayList(
+            mutableListOf(
+                "https://help.github.com/cn/github/using-git/resolving-merge-conflicts-after-a-git-rebase",
+                "https://juejin.im/entry/5ae9706d51882567327809d0"
+            )
+        )
+        context?.startActivity(Intent(context, WebViewActivity::class.java).apply {
+            putStringArrayListExtra("URLS", urls)
+        })
         return true
     }
 }
