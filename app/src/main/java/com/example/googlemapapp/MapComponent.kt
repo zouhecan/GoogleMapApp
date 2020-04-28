@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.Marker
 
 /**
  * desc:
- * author: zouhecan {hc.zou@ctrip.com}
+ * author: zouhecan {zouhecan@gmail.com}
  * date: 2020/4/22
  */
 class MapComponent : SupportMapFragment(), GoogleApiClient.ConnectionCallbacks,

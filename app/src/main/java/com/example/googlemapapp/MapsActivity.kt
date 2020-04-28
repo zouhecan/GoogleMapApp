@@ -24,19 +24,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as MapComponent
         mapFragment.getMapAsync(this)
         Handler().postDelayed(Runnable {
-            val urls = ArrayList(
-                mutableListOf(
-//                    "https://help.github.com/cn/github/using-git/resolving-merge-conflicts-after-a-git-rebase",
-//                    "https://juejin.im/entry/5ae9706d51882567327809d0",
-//                    "https://juejin.im/entry/5ae9706d51882567327809d0",
-//                    "https://zhuanlan.zhihu.com/p/32536915"
-                    "s://tshop.xymens.com/Assets/cat_size/?table_id=5&goods_id=277063&user_id="
-                )
-            )
-            startActivity(Intent(this, FragmentTestActivity::class.java).apply {
-//                putStringArrayListExtra("URLS", urls)
-            })
-            Log.d("zouhecan", "startWebViewActivity")
+            startActivity(Intent(this, FragmentTestActivity::class.java))
         }, 2000)
     }
 

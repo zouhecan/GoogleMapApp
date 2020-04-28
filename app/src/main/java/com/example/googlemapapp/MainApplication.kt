@@ -8,7 +8,7 @@ import com.tencent.smtt.sdk.QbSdk.PreInitCallback
 
 /**
  * desc:
- * author: zouhecan {hc.zou@ctrip.com}
+ * author: zouhecan {zouhecan@gmail.com}
  * date: 2020/4/27
  */
 class MainApplication :Application(){

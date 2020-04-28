@@ -25,7 +25,7 @@ import java.util.HashSet;
 
 /**
  * desc:
- * author: zouhecan {hc.zou@ctrip.com}
+ * author: zouhecan {zouhecan@gmail.com}
  * date: 2020/4/27
  */
 public class WebViewActivity extends Activity {
@@ -94,9 +94,8 @@ public class WebViewActivity extends Activity {
 
             @Override
             public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                super.onReceivedSslError(webView, sslErrorHandler, sslError);
+                sslErrorHandler.proceed();
                 Log.d("zouhecan", "onReceivedSslError:" + sslError.toString());
-
             }
         });
 

@@ -9,10 +9,12 @@ import kotlinx.android.synthetic.main.fragment_test_1.*
 
 /**
  * desc:
- * author: zouhecan {hc.zou@ctrip.com}
+ * author: zouhecan {zouhecan@gmail.com}
  * date: 2020/4/28
  */
 class TestFragment1(private var type: String) : Fragment() {
+
+    constructor() : this("TestFragment1 default constructor") {}
 
     override fun onCreateView(
         inflater: LayoutInflater,
