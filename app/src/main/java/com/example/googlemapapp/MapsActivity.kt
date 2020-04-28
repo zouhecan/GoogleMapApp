@@ -33,8 +33,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     "s://tshop.xymens.com/Assets/cat_size/?table_id=5&goods_id=277063&user_id="
                 )
             )
-            startActivity(Intent(this, WebViewActivity::class.java).apply {
-                putStringArrayListExtra("URLS", urls)
+            startActivity(Intent(this, FragmentTestActivity::class.java).apply {
+//                putStringArrayListExtra("URLS", urls)
             })
             Log.d("zouhecan", "startWebViewActivity")
         }, 2000)
