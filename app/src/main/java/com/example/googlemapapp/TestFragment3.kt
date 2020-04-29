@@ -14,11 +14,15 @@ import java.lang.Exception
  * author: zouhecan {zouhecan@gmail.com}
  * date: 2020/4/28
  */
-class TestFragment1(private var type: String) : Fragment() {
-
-//    constructor() : this("TestFragment1 default constructor") {
-//        Log.d("zouhecan", type)
-//    }
+class TestFragment3() : Fragment() {
+    companion object {
+        @JvmStatic
+        fun newInstance(type: String): TestFragment3 {
+            return TestFragment3().apply {
+                arguments = Bundle().apply { putString("TYPE", type) }
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +34,10 @@ class TestFragment1(private var type: String) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        content.text = type
+        arguments?.getString("TYPE")?.let {
+            Log.d("zouhecan", "TestFragment onViewCreated: type = $it")
+            content.text = it
+        }
         showParent()
     }
 

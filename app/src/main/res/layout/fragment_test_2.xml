@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="40dp"
-    android:background="#999999"
+    android:background="#33da33"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -16,9 +16,5 @@
         android:gravity="center"
         android:layout_margin="20dp"
         tools:text="content" />
-
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </LinearLayout>
+

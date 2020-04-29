@@ -19,22 +19,18 @@ import java.util.ArrayList;
  * author: zouhecan {zouhecan@gmail.com}
  * date: 2020/4/28
  */
-public class TestFragment2 extends Fragment {
-    private String index;
+public class TestFragment4 extends Fragment {
+    private String type;
 
-    public TestFragment2(String index) {
-        this.index = index;
-    }
-
-    public TestFragment2() {
-        Log.d("zouhecan", "TestFragment2 no param constructor");
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test_2, container, false);
-        ((TextView) view.findViewById(R.id.content)).setText(index);
+        ((TextView) view.findViewById(R.id.content)).setText(type);
         view.setBackgroundColor(Color.parseColor("#33da33"));
         return view;
     }
